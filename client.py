@@ -1,10 +1,14 @@
 import socket
+from directkeys import PressKey,ReleaseKey,W,A,S,D
 s = socket.socket()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ##host = socket.gethostbyname("DESKTOP-HC36K46") !My windows pc name
 port = 1122
 EndNumber = 255
-i = 100
+i = 100 
+## really depends on your router (mine starts from 192.168.0.100) 
+##yours may start from 192.168.0.1 if thats the case change  i = 100 to i = 1 and EndNumber to something Less like 20
+## because at max home router can handle 8-16 devices at max
 host = 'WWW'
 while i < EndNumber:
     ip = "192.168.0."+str(i)
@@ -31,20 +35,51 @@ while True:
     data = str(data)
     if(data == "b'w'"):
         print("W")
+        PressKey(W)
+        ReleaseKey(S)
+        ReleaseKey(A)
+        ReleaseKey(D)
     elif(data == "b's'"):
         print("S")
+        PressKey(S)
+        ReleaseKey(W)
+        ReleaseKey(A)
+        ReleaseKey(D)
     elif(data == "b'a'"):
         print("A")
+        PressKey(A)
+        ReleaseKey(W)
+        ReleaseKey(S)
+        ReleaseKey(D)
     elif(data == "b'd'"):
         print("D")
+        PressKey(D)
+        ReleaseKey(W)
+        ReleaseKey(S)
+        ReleaseKey(A)
     elif(data == "b'wa'"):
-        print("WA")
+        PressKey(A)
+        pressKey(W)
+        ReleaseKey(S)
+        ReleaseKey(D)
     elif(data == "b'wd'"):
         print("WD")
+        PressKey(D)
+        pressKey(W)
+        ReleaseKey(S)
+        ReleaseKey(A)
     elif(data == "b'sa'"):
         print("SA")
+        PressKey(A)
+        pressKey(S)
+        ReleaseKey(W)
+        ReleaseKey(D)
     elif(data == "b'sd'"):
         print("SD")
+        PressKey(D)
+        pressKey(S)
+        ReleaseKey(W)
+        ReleaseKey(A)
 
 
 
