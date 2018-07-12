@@ -6,7 +6,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print('starting server on pc')
 print(socket.gethostname())
 print('Please enter the following code from raspberry pi')
-host = socket.gethostbyname("DESKTOP-HC36K46")
+host = socket.gethostbyname("DESKTOP-HC36K46") ## "DESKTOP-HC36K46" it is my windows pc(Server) change "DESKTOP-HC36K46" to your pc name before you run the code
 port = 1122
 print("Socket successfully created")
 s.bind((host,port))
